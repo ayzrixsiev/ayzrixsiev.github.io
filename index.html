@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rixsiev Aziz — Resume</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #5a5f66;
+      --line: #e7e7e7;
+      --soft: #f7f7f7;
+      --accent: #111111;
+      --max: 860px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 36px 20px 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 8px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+    }
+
+    .lang-switch button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      transition: 0.2s ease;
+    }
+
+    .lang-switch button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    header {
+      padding: 14px 0 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .role {
+      margin-top: 12px;
+      font-size: 1.06rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .location {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .sep {
+      margin: 26px 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    section {
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .block {
+      padding: 0;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .job {
+      display: grid;
+      gap: 6px;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    .job-meta {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 4px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin: 0 0 8px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: block;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text);
+      background: #fff;
+      transition: 0.2s ease;
+    }
+
+    .contact-item:hover {
+      border-color: #cfcfcf;
+      transform: translateY(-1px);
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      display: block;
+      font-size: 0.98rem;
+      word-break: break-word;
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        padding: 24px 16px 44px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    [data-lang] {
+      display: none;
+    }
+
+    [data-lang].active {
+      display: block;
+    }
+
+    .inline {
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <div class="brand">Resume / Portfolio</div>
+      <div class="lang-switch" role="tablist" aria-label="Language switch">
+        <button id="btn-en" class="active" type="button">EN</button>
+        <button id="btn-ru" type="button">RU</button>
+      </div>
+    </div>
+
+    <header>
+      <h1>Rixsiev Aziz</h1>
+      <div class="role" data-lang="en">Software Engineer | Software Architect | System Design</div>
+      <div class="role" data-lang="ru">Инженер-программист | Архитектор программных систем | System Design</div>
+      <div class="location" data-lang="en">Tashkent, Uzbekistan</div>
+      <div class="location" data-lang="ru">Ташкент, Узбекистан</div>
+    </header>
+
+    <hr class="sep" />
+
+    <section>
+      <div class="section-title" data-lang="en">Professional Summary</div>
+      <div class="section-title" data-lang="ru">Профессиональное резюме</div>
+
+      <div data-lang="en" class="block">
+        <p>
+          I have experience in designing and implementing distributed, high-performance backend architectures with FastAPI and Go.
+          I work with scalable systems and data-intensive platforms, and I am interested in how modern backend systems are structured,
+          how asynchronous processing is built, and how services stay reliable under load.
+        </p>
+        <p>
+          In machine learning, I train and optimize deep learning models, including YOLO, segmentation models, and custom CNN/U-Net architectures.
+          I develop systems for comparative analysis of satellite time-series data and work with large-scale multispectral and hyperspectral imagery,
+          performing preprocessing, augmentation, performance optimization, and integration of machine learning systems into production environments.
+        </p>
+      </div>
+
+      <div data-lang="ru" class="block">
+        <p>
+          Имею опыт проектирования и реализации распределённых высоконагруженных backend-архитектур на FastAPI и Go.
+          Работаю со scalable systems и data-intensive platform, интересуюсь тем, как устроены современные backend-системы,
+          как строится асинхронная обработка и как сервисы сохраняют надёжность под нагрузкой.
+        </p>
+        <p>
+          В машинном обучении обучаю и оптимизирую deep learning модели, включая YOLO, segmentation models и custom CNN/U-Net архитектуры.
+          Разрабатываю системы сравнительного анализа временных рядов спутниковых данных и работаю с большими объёмами мультиспектральных и гиперспектральных изображений,
+          выполняя предобработку, аугментацию, оптимизацию производительности и интеграцию ML-систем в production environments.
+        </p>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <section>
+      <div class="section-title" data-lang="en">Experience</div>
+      <div class="section-title" data-lang="ru">Опыт</div>
+
+      <div class="job" data-lang="en">
+        <div class="job-title">Machine Learning Engineer — Uzcosmos</div>
+        <div class="job-meta">Mar 2026 — 3 months — Present</div>
+        <ul>
+          <li>Train and optimize machine learning models, including YOLO, segmentation models, and custom CNN.</li>
+          <li>Develop systems for comparative analysis of satellite time-series data.</li>
+          <li>Work with large volumes of multispectral and hyperspectral imagery.</li>
+          <li>Perform data preprocessing, augmentation, and model optimization for performance.</li>
+          <li>Contribute to ML pipelines and production-oriented workflows for applied scenarios.</li>
+        </ul>
+      </div>
+
+      <div class="job" data-lang="ru">
+        <div class="job-title">Machine Learning Engineer — Узкосмос</div>
+        <div class="job-meta">Март 2026 — 3 месяца — настоящее время</div>
+        <ul>
+          <li>Обучаю и оптимизирую модели машинного обучения, включая YOLO, segmentation models и custom CNN.</li>
+          <li>Разрабатываю системы сравнительного анализа временных рядов спутниковых данных.</li>
+          <li>Работаю с большими объёмами мультиспектральных и гиперспектральных изображений.</li>
+          <li>Выполняю предобработку данных, аугментацию и оптимизацию моделей под производительность.</li>
+          <li>Участвую в разработке ML-пайплайнов и production-oriented workflows для прикладных сценариев.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <section>
+      <div class="section-title" data-lang="en">Education</div>
+      <div class="section-title" data-lang="ru">Образование</div>
+
+      <div data-lang="en" class="block">
+        <p>
+          Computer Science at Central Asian University, Engineering Department. The program builds a strong foundation in mathematics,
+          programming in C++ and Java, networking, and deep image processing, giving me the background to think systematically about software,
+          data, and machine learning pipelines.
+        </p>
+      </div>
+
+      <div data-lang="ru" class="block">
+        <p>
+          Computer Science в Central Asian University, Engineering Department. Программа даёт сильную базу в математике,
+          программировании на C++ и Java, networking и deep image processing, формируя фундамент для системного мышления в software,
+          data и machine learning pipelines.
+        </p>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <section>
+      <div class="section-title" data-lang="en">Contacts</div>
+      <div class="section-title" data-lang="ru">Контакты</div>
+
+      <div class="contact-grid">
+        <a class="contact-item" href="https://www.linkedin.com/in/ayzrixsiev/" target="_blank" rel="noreferrer">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">linkedin.com/in/ayzrixsiev</span>
+        </a>
+
+        <a class="contact-item" href="https://github.com/ayzrixsiev/" target="_blank" rel="noreferrer">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">github.com/ayzrixsiev</span>
+        </a>
+
+        <a class="contact-item" href="mailto:ayzrixsiev@gmail.com">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">ayzrixsiev@gmail.com</span>
+        </a>
+
+        <a class="contact-item" href="tel:+998998643104">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+998 99 864 31 04</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const btnEn = document.getElementById('btn-en');
+    const btnRu = document.getElementById('btn-ru');
+    const allLangBlocks = document.querySelectorAll('[data-lang]');
+
+    function setLanguage(lang) {
+      allLangBlocks.forEach((el) => {
+        el.classList.remove('active');
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.add('active');
+        }
+      });
+
+      btnEn.classList.toggle('active', lang === 'en');
+      btnRu.classList.toggle('active', lang === 'ru');
+      document.documentElement.lang = lang;
+    }
+
+    btnEn.addEventListener('click', () => setLanguage('en'));
+    btnRu.addEventListener('click', () => setLanguage('ru'));
+
+    setLanguage('en');
+  </script>
+</body>
+</html>
