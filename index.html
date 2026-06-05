@@ -6,12 +6,15 @@
   <title>Rixsiev Aziz — Resume</title>
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #5a5f66;
-      --line: #e7e7e7;
-      --soft: #f7f7f7;
-      --accent: #111111;
+      --bg: #181c20;
+      --panel: #20252b;
+      --panel-2: #1d2227;
+      --text: #e6e9ed;
+      --muted: #9aa3ad;
+      --line: #313840;
+      --line-strong: #4b5662;
+      --accent: #e6e9ed;
+      --accent-text: #181c20;
       --max: 860px;
     }
 
@@ -28,7 +31,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -36,7 +39,7 @@
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 36px 20px 56px;
+      padding: 48px 24px 72px;
     }
 
     .topbar {
@@ -44,11 +47,11 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .brand {
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
@@ -56,11 +59,12 @@
 
     .lang-switch {
       display: inline-flex;
-      gap: 8px;
+      gap: 6px;
       padding: 4px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: #fff;
+      background: var(--panel);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
     }
 
     .lang-switch button {
@@ -73,41 +77,44 @@
       cursor: pointer;
       font: inherit;
       transition: 0.2s ease;
+      white-space: nowrap;
     }
 
     .lang-switch button.active {
       background: var(--accent);
-      color: #fff;
+      color: var(--accent-text);
     }
 
     header {
-      padding: 14px 0 8px;
+      padding: 12px 0 8px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(1.9rem, 3vw, 2.5rem);
       line-height: 1.08;
       letter-spacing: -0.04em;
+      font-weight: 700;
     }
 
     .role {
-      margin-top: 12px;
-      font-size: 1.06rem;
-      color: var(--text);
+      margin-top: 10px;
+      font-size: 1.03rem;
+      color: #d5dbe1;
       font-weight: 600;
     }
 
     .location {
       margin-top: 6px;
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: 0.97rem;
     }
 
     .sep {
-      margin: 26px 0;
+      margin: 28px 0;
       border: 0;
-      border-top: 1px solid var(--line);
+      border-top: 2px solid var(--line-strong);
+      opacity: 0.95;
     }
 
     section {
@@ -130,10 +137,6 @@
       margin: 0 0 14px;
       color: var(--text);
       font-size: 1rem;
-    }
-
-    .muted {
-      color: var(--muted);
     }
 
     .job {
@@ -161,41 +164,45 @@
       margin: 0 0 8px;
     }
 
-    .contact-grid {
+    .contact-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--panel-2);
     }
 
-    .contact-item {
-      display: block;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      text-decoration: none;
-      color: var(--text);
-      background: #fff;
-      transition: 0.2s ease;
+    .contact-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      padding: 12px 0;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
     }
 
-    .contact-item:hover {
-      border-color: #cfcfcf;
-      transform: translateY(-1px);
+    .contact-row:last-child {
+      border-bottom: 0;
     }
 
     .contact-label {
-      display: block;
       font-size: 0.76rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--muted);
-      margin-bottom: 4px;
+      padding-top: 2px;
     }
 
     .contact-value {
-      display: block;
       font-size: 0.98rem;
       word-break: break-word;
+      color: #dce2e8;
+      text-decoration: none;
+    }
+
+    .contact-value:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     @media (max-width: 720px) {
@@ -208,8 +215,9 @@
         flex-direction: column;
       }
 
-      .contact-grid {
+      .contact-row {
         grid-template-columns: 1fr;
+        gap: 4px;
       }
     }
 
@@ -219,10 +227,6 @@
 
     [data-lang].active {
       display: block;
-    }
-
-    .inline {
-      display: inline;
     }
   </style>
 </head>
@@ -335,26 +339,26 @@
       <div class="section-title" data-lang="en">Contacts</div>
       <div class="section-title" data-lang="ru">Контакты</div>
 
-      <div class="contact-grid">
-        <a class="contact-item" href="https://www.linkedin.com/in/ayzrixsiev/" target="_blank" rel="noreferrer">
-          <span class="contact-label">LinkedIn</span>
-          <span class="contact-value">linkedin.com/in/ayzrixsiev</span>
-        </a>
+      <div class="contact-list">
+        <div class="contact-row">
+          <div class="contact-label">LinkedIn</div>
+          <a class="contact-value" href="https://www.linkedin.com/in/ayzrixsiev/" target="_blank" rel="noreferrer">linkedin.com/in/ayzrixsiev</a>
+        </div>
 
-        <a class="contact-item" href="https://github.com/ayzrixsiev/" target="_blank" rel="noreferrer">
-          <span class="contact-label">GitHub</span>
-          <span class="contact-value">github.com/ayzrixsiev</span>
-        </a>
+        <div class="contact-row">
+          <div class="contact-label">GitHub</div>
+          <a class="contact-value" href="https://github.com/ayzrixsiev/" target="_blank" rel="noreferrer">github.com/ayzrixsiev</a>
+        </div>
 
-        <a class="contact-item" href="mailto:ayzrixsiev@gmail.com">
-          <span class="contact-label">Email</span>
-          <span class="contact-value">ayzrixsiev@gmail.com</span>
-        </a>
+        <div class="contact-row">
+          <div class="contact-label">Email</div>
+          <a class="contact-value" href="mailto:ayzrixsiev@gmail.com">ayzrixsiev@gmail.com</a>
+        </div>
 
-        <a class="contact-item" href="tel:+998998643104">
-          <span class="contact-label">Phone</span>
-          <span class="contact-value">+998 99 864 31 04</span>
-        </a>
+        <div class="contact-row">
+          <div class="contact-label">Phone</div>
+          <a class="contact-value" href="tel:+998998643104">+998 99 864 31 04</a>
+        </div>
       </div>
     </section>
   </main>
