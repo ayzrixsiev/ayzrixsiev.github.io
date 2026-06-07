@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -139,6 +139,10 @@
       font-size: 1rem;
     }
 
+    p:last-child {
+      margin-bottom: 0;
+    }
+
     .job {
       display: grid;
       gap: 6px;
@@ -155,13 +159,20 @@
       margin-bottom: 4px;
     }
 
-    ul {
-      margin: 10px 0 0;
-      padding-left: 18px;
+    .edu-block {
+      display: grid;
+      gap: 4px;
     }
 
-    li {
-      margin: 0 0 8px;
+    .edu-title {
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    .edu-meta {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 6px;
     }
 
     .contact-list {
@@ -205,6 +216,23 @@
       text-underline-offset: 3px;
     }
 
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-tag {
+      font-size: 0.82rem;
+      color: var(--muted);
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+
     @media (max-width: 720px) {
       .wrap {
         padding: 24px 16px 44px;
@@ -228,113 +256,157 @@
     [data-lang].active {
       display: block;
     }
+
+    .tech-stack[data-lang] {
+      display: none;
+    }
+
+    .tech-stack[data-lang].active {
+      display: flex;
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <div class="topbar">
-      <div class="brand">Resume / Portfolio</div>
+      <div class="brand">Resume</div>
       <div class="lang-switch" role="tablist" aria-label="Language switch">
-        <button id="btn-en" class="active" type="button">EN</button>
-        <button id="btn-ru" type="button">RU</button>
+        <button id="btn-en" type="button">EN</button>
+        <button id="btn-ru" class="active" type="button">RU</button>
       </div>
     </div>
 
     <header>
       <h1>Rixsiev Aziz</h1>
-      <div class="role" data-lang="en">Software Engineer | Software Architect | System Design</div>
-      <div class="role" data-lang="ru">Software Engineer | Software Architect | System Design</div>
+      <div class="role">Software Engineer</div>
       <div class="location" data-lang="en">Tashkent, Uzbekistan</div>
       <div class="location" data-lang="ru">Ташкент, Узбекистан</div>
     </header>
 
     <hr class="sep" />
 
+    <!-- Tech Stack -->
     <section>
-      <div class="section-title" data-lang="en">Professional Summary</div>
+      <div class="section-title" data-lang="en">Tech Stack</div>
+      <div class="section-title" data-lang="ru">Технологии</div>
+
+      <div class="tech-stack" data-lang="en">
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">Go</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Redis</span>
+        <span class="tech-tag">Kafka</span>
+        <span class="tech-tag">SQLAlchemy</span>
+        <span class="tech-tag">Alembic</span>
+        <span class="tech-tag">gRPC</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Docker Compose</span>
+        <span class="tech-tag">Linux</span>
+        <span class="tech-tag">Nginx</span>
+        <span class="tech-tag">PyTorch</span>
+      </div>
+
+      <div class="tech-stack" data-lang="ru">
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">Go</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Redis</span>
+        <span class="tech-tag">Kafka</span>
+        <span class="tech-tag">SQLAlchemy</span>
+        <span class="tech-tag">Alembic</span>
+        <span class="tech-tag">gRPC</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Docker Compose</span>
+        <span class="tech-tag">Linux</span>
+        <span class="tech-tag">Nginx</span>
+        <span class="tech-tag">PyTorch</span>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <!-- About -->
+    <section>
+      <div class="section-title" data-lang="en">About me</div>
       <div class="section-title" data-lang="ru">О себе</div>
 
       <div data-lang="en" class="block">
         <p>
-            I have experience in designing and implementing distributed, high-performance backend architectures with FastAPI and Go.
-            My work includes API design, service-oriented systems, asynchronous processing, data-intensive applications, and the integration of machine learning services into these environments.
-            I work with relational databases, data modeling, service boundaries, and backend infrastructure. I have experience building containerized systems with Docker and Docker Compose.
+          I have experience designing and implementing distributed, high-performance, and data-intensive systems with FastAPI and Go. I understand the principles of API design, service-oriented architectures, event-driven systems, asynchronous communication patterns, and the concepts behind building scalable services. I also have practical experience with relational database design, data modeling, schema evolution and building data layers for backend applications. I also have experience building and operating containerized environments using Docker and Docker Compose, including service isolation, networking, health checks, and deployment workflows.
         </p>
         <p>
-          I train and optimize deep learning models, including YOLO, segmentation models, and custom CNN/U-Net architectures.
-          I develop systems for comparative analysis of satellite time-series data and work with large-scale multispectral and hyperspectral imagery,
-          performing preprocessing, augmentation, performance optimization, and integration of machine learning systems into production environments.
+          I have experience building machine learning systems for remote sensing applications. My work involves large-scale multispectral and hyperspectral satellite data, including data preprocessing, augmentation, model optimization, and the development of systems for satellite image segmentation, object detection, and comparative analysis of satellite time-series data. I also have experience building ML pipelines and integrating inference workflows with distributed services and data processing systems.
         </p>
       </div>
 
       <div data-lang="ru" class="block">
         <p>
-            Имею опыт проектирования и реализации распределённых высокопроизводительных backend-архитектур на FastAPI и Go.
-            В моей практике — проектирование API, сервис-ориентированные системы, асинхронная обработка, data-intensive приложения и интеграция в них сервисов машинного обучения.
-            Работаю с реляционными базами данных, моделированием данных, границами сервисов и backend-инфраструктурой, а также имею опыт построения контейнеризированных систем с использованием Docker и Docker Compose.
+          Имею опыт проектирования и реализации распределённых, высокопроизводительных и data-intensive систем используя FastAPI и Go. Хорошо ориентируюсь в проектировании API, сервис-ориентированных архитектурах, событийно-ориентированных системах, асинхронных моделях взаимодействия и принципах построения масштабируемых сервисов. Также имею практический опыт проектирования реляционных баз данных, моделирования данных, эволюции схем и разработки слоёв хранения данных для backend-приложений. Также имею опыт построения и эксплуатации контейнеризированных окружений с использованием Docker и Docker Compose, включая изоляцию сервисов, сетевое взаимодействие, health checks и процессы развёртывания.
         </p>
         <p>
-          Я обучаю и оптимизирую модели глубокого обучения, включая YOLO, модели сегментации и кастомные CNN/U-Net.
-          Я разрабатываю системы для сравнительного анализа спутниковых временных рядов и работаю с крупномасштабными мультиспектральными и гиперспектральными изображениями,
-          выполняя предварительную обработку, аугментацию, оптимизацию производительности и интеграцию систем машинного обучения в производственные среды.
+          Имею опыт построения ML-систем для задач дистанционного зондирования Земли. Работаю с крупномасштабными мультиспектральными и гиперспектральными спутниковыми данными, включая предобработку данных, аугментацию, оптимизацию моделей и разработку систем для сегментации спутниковых изображений, обнаружения объектов и сравнительного анализа спутниковых временных рядов. Также имею опыт построения ML-пайплайнов и интеграции inference-процессов с распределёнными сервисами и системами обработки данных.
         </p>
       </div>
     </section>
 
     <hr class="sep" />
 
+    <!-- Experience -->
     <section>
       <div class="section-title" data-lang="en">Experience</div>
       <div class="section-title" data-lang="ru">Опыт</div>
 
       <div class="job" data-lang="en">
         <div class="job-title">Machine Learning Engineer — Uzcosmos</div>
-        <div class="job-meta">Mar 2026 — 3 months — Present</div>
-        <ul>
-          <li>Train and optimize machine learning models, including YOLO, segmentation models, and custom CNN.</li>
-          <li>Develop systems for comparative analysis of satellite time-series data.</li>
-          <li>Work with large volumes of multispectral and hyperspectral imagery.</li>
-          <li>Perform data preprocessing, augmentation, and model optimization for performance.</li>
-          <li>Contribute to ML pipelines and production-oriented workflows for applied scenarios.</li>
-        </ul>
+        <div class="job-meta">Mar 2026 — Present · 3 months</div>
+        <p>
+          • Develop machine learning systems for remote sensing applications using multispectral and hyperspectral satellite imagery.
+          • Work on satellite image segmentation, object detection, and comparative analysis of satellite time-series data.
+          • Perform data preprocessing, augmentation, dataset preparation, and optimization of training workflows.
+          • Contribute to the development of ML pipelines for training, evaluation, and inference of computer vision models.
+
+        </p>
       </div>
 
       <div class="job" data-lang="ru">
         <div class="job-title">Machine Learning Engineer — Узкосмос</div>
-        <div class="job-meta">Март 2026 — 3 месяца — настоящее время</div>
-        <ul>
-          <li>Обучаю и оптимизирую модели машинного обучения, включая YOLO, segmentation models и custom CNN.</li>
-          <li>Разрабатываю системы сравнительного анализа временных рядов спутниковых данных.</li>
-          <li>Работаю с большими объёмами мультиспектральных и гиперспектральных изображений.</li>
-          <li>Выполняю предобработку данных, аугментацию и оптимизацию моделей под производительность.</li>
-          <li>Участвую в разработке ML-пайплайнов и production-oriented workflows для прикладных сценариев.</li>
-        </ul>
+        <div class="job-meta">Март 2026 — настоящее время · 4 месяца</div>
+        <p>
+          • Разрабатываю ML-системы для задач дистанционного зондирования Земли с использованием мультиспектральных и гиперспектральных спутниковых данных.
+          • Участвую в разработке решений для сегментации спутниковых изображений, обнаружения объектов и сравнительного анализа спутниковых временных рядов.
+          • Выполняю предобработку данных, аугментацию, подготовку датасетов и оптимизацию процессов обучения моделей.
+          • Участвую в построении ML-пайплайнов для обучения, оценки качества и инференса моделей компьютерного зрения.
+        </p>
       </div>
     </section>
 
     <hr class="sep" />
 
+    <!-- Education -->
     <section>
       <div class="section-title" data-lang="en">Education</div>
       <div class="section-title" data-lang="ru">Образование</div>
 
-      <div data-lang="en" class="block">
+      <div class="edu-block" data-lang="en">
+        <div class="edu-title">Bachelor of Science in Computer Science</div>
+        <div class="edu-meta">Central Asian University, Engineering Department · 2023 — 2027</div>
         <p>
-            Computer Science at Central Asian University, Engineering Department.
-            Built a strong foundation in software engineering, algorithms, data structures, and systems thinking, along with an understanding of the principles behind modern software systems and their design.
+          Built a foundation in software engineering, algorithms, data structures, along with an understanding of the principles behind modern software systems and their design.
         </p>
       </div>
 
-      <div data-lang="ru" class="block">
+      <div class="edu-block" data-lang="ru">
+        <div class="edu-title">Бакалавриат — Computer Science</div>
+        <div class="edu-meta">Central Asian University, Engineering Department · 2023 — 2027</div>
         <p>
-          Computer Science в Central Asian University, Engineering Department.
-          Получил прочные знания в области разработки программного обеспечения, алгоритмов, структур данных и системного мышления, а также понимание современных программных систем и принципов архитектурного проектирования.
+          Заложил прочный фундамент знаний в области разработки программного обеспечения, алгоритмов, структур данных, а также получил понимание принципов, лежащих в основе современных программных систем и их проектирования.
         </p>
       </div>
     </section>
 
     <hr class="sep" />
 
+    <!-- Contacts -->
     <section>
       <div class="section-title" data-lang="en">Contacts</div>
       <div class="section-title" data-lang="ru">Контакты</div>
@@ -384,7 +456,7 @@
     btnEn.addEventListener('click', () => setLanguage('en'));
     btnRu.addEventListener('click', () => setLanguage('ru'));
 
-    setLanguage('en');
+    setLanguage('ru');
   </script>
 </body>
 </html>
